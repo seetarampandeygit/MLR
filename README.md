@@ -37,82 +37,43 @@ This Multiple Linear Regression study seeks to model the demand for shared bikes
 - scikit-learn (or sklearn): 1.4.2
 - statsmodels: 0.14.2
 
-## Dataset Reading
-- Headers and Top-5 rows
-- Shape
-- Index Range and Column's datatype
+## Data understanding, preparation and EDA
+- Understanding DataFrame and structure of the data set (Headers, shape, info, columns data type, date formatting)
+- Renaming columns to have meanings
+- Checking distribution of our target variable 'total_rentals'
+- Mapping the values of variables 'season', 'weather_type', 'weekday' and 'month' for better undertanding of numerical codes
+- Dropping Irrelevant Columns
+- Categorical Varaible Anylysis
+- Creating Dummy Variables to represent different categorical variables as 0 and 1 so that could be included in our linear regression model if needed
+- Analysing Numerical Variables
 
-## Data Cleaning
-- Null values processing
+## Linear Regression Model Building and Evaluation
+- Dropping Irrelevant columns
+- Splitting our 'day' DataFrame in 'train' and 'test' set
+- Analyse basic properties of train set
+- Scaling
+- Build model using RFE (Recursive Feature Elimination)
+- Creating different LR models (if needed) after checking p-values, R^2, adj R^2, F-statistics and VIF and then dropping the insignificant variable
+- Residual Analysis
+- LR Assumptions Validation
+- Making predictions or drawing inferences (from Test set)
+- y_test vs.y_test_predicted
+- Test_set R^2 and adj R^2
 
-## Data Filtering
-- Data Duplicacy Check
-- Segragating and Analysing variable type (Categorical, Numerical)
-
-## Data Standardization
-- Converting variables 'int-rate' and 'revol_util' to numeric
-
-## Univariate Analysis
-### Numerical Variables
-- Loan Amount Distribution
-- Interest Rates
-- Revolving Utilities
-- Installments
-### Categorical Variables
-- Unique Member Check
-- Loan Term
-- Customer Grade
-- Employment Length
-- Verification Status
-- Loan Purpose
-- Home Ownership
-
-## Bivariate Analysis
-- Loan Term Vs Loan Status
-- Grade vs Loan_status
-- Subgrade Vs Loan_Status
-- Purpose vs Loan_Status
-- Employment Length Vs Loan_Status
-- House Ownership Vs Loan Status
-
-## Derived Metrics
-- emp_len&Term vs loan status
-- purpose&emp_len vs loan status
-- credit_enquiry vs loan status
-- public_record vs loan status
-- bankruptcy vs loan status
-- delinq_record vs loan status
-- perc_util vs loan status
-- interest vs loan status
-- dti_buck vs loan status
-
-## Conclusions
-- Institution Loss: Typically, around 14% to 15% of members default, which is quite significant.
-  
-- Loan Term: The organization offers a 36-month loan repayment period for approximately 78% of its clients. However, customers with a 60-month loan repayment term are generally more prone to default. This was further confirmed when analyzed alongside the length of employment. Regardless of how long a customer has been employed, those with a 60-month tenure have a greater likelihood of defaulting. Therefore company should have a stringent policy to minimize lending for 60 months tenure.
-
-- Customer Grade: Most customers fall into grades A or B. However, those in grades G, F, and E have a higher probability of defaulting. Therefore, the company should refrain from extending loans to customers in grades G, F, and E.
-
-- Purpose of Loan: The company should be wary or exercise additional caution when providing loans for small business ventures or renewable energy projects, as these are more prone to default. This was further confirmed when analyzed in conjunction with the length of employment.
-
-- Customer Collateral: It is noted that individuals whose home ownership status is labeled as unknown (other) tend to have a higher likelihood of default. The company should make sure to obtain appropriate collateral guarantees before providing loans.
-
-- Credit History: The company needs to exercise extreme caution when lending to customers who have any credit inquiries within the past six months, those with any public record entries, or individuals with a history of bankruptcy.
-
-- Customer Behaviour: The company should also make sure to review the delinquency history of a customer for at least two years before issuing loans. The analysis indicated that individuals with any delinquency history are more likely to default.
-
-- Customer Financial Situation: The organization needs to thoroughly evaluate the Debt-to-Income (DTI) ratio before making decisions on loan approvals or setting interest rates. The interest rates should not be excessively high. It has been noted that as both the DTI and interest rates rise, the likelihood of default also escalates.
-
-- Customer Credit Limit: Customers who make greater use of credit lines are at a higher risk of default. Consequently, the company should focus on this significant variable as well.
-
-- Institution Research: The lending institution has failed to consider crucial factors before granting loans. It appears that there is almost no correlation between aspects such as bankruptcy records and loan amounts, debt-to-income ratios and loan amounts, delinquency records and loan amounts, and so forth.
+## Conclusions (Major)
+- Assumptions of Linear Regression are satisfied
+- Temperature influences the Bike rentals the most. The higher the temperature, the more are the rentals. This means a unit change in temperature keeping other variables fixed would spur the demand for rental bikes by approx. 42.8%. This was the same inference we drew from EDA.
+- The business concept is gaining popularity. Even if all other factors are taken away, still the business will grow by about 24.5% year by year keeping the other features fixed.
+- Light Snow and Light Rain affect Bike rentals the most in a negative way. This means a unit change in Snow and Rain attributes keeping other variables fixed would discourage the demand for rental bikes by approx. 28.9%. (Same inference from EDA)
+- During the spring season bike rentals are less (same inferences by EDA).
+   
 
   
 ## Acknowledgements
 
 - This project was inspired by ML-AI couse at UpGrad and IIIT-B
 - References: UpGrad and IIIT-B
-- This project was based on [Exploratory Data Analysis]([https://learn.upgrad.com/course/5811/segment/53276/316330/957989/4783435]).
+- This project was based on [Linear Regression Assignment]([https://learn.upgrad.com/course/5811/segment/57681/345226/1043364/5213120]).
 
 
 ## Contact
